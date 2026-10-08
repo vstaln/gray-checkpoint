@@ -1,6 +1,15 @@
-# gray-checkpoint
+<p align="center">
+  <img src="assets/gray-logo.svg" alt="gray" width="96">
+</p>
+<h1 align="center">gray-checkpoint</h1>
+<p align="center">Git stash checkpoints per turn, with `/checkpoint list|restore`.</p>
+<p align="center">
+  <a href="https://github.com/vstaln/gray-checkpoint/blob/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+  <img alt="gray plugin" src="https://img.shields.io/badge/gray-plugin-7aa2f7.svg">
+  <img alt="rust" src="https://img.shields.io/badge/built%20with-rust-orange.svg">
+</p>
 
-Git stash checkpoints per session; `/checkpoint list|restore`. Port of pi's `git-checkpoint` extension.
+Git stash checkpoints per session; `/checkpoint list|restore`.
 
 A sidecar plugin for [gray](https://github.com/vstaln/gray), scaffolded by
 [gray-account](https://github.com/vstaln/gray-account).
@@ -22,14 +31,13 @@ is dirty the resulting commit ref is appended as `{turn, ref}` to
   non-interactive host, timeout) it falls back to the
   `usage: /checkpoint restore <n>` text.
 
-pi restored checkpoints automatically on `/fork`; gray's wire has no fork
-event, so restore is manual via `/checkpoint`.
+Gray's wire has no fork event, so restore is manual via `/checkpoint`.
 
 ## Wire methods
 
 `plugin/manifest`, `agent/before_start`, `command/run`, `plugin/shutdown`;
 notification `event/notify` (`turn_end`). Protocol 2.0 (mutating hook
-`agent/before_start`, though this port only uses it as a side effect and
+`agent/before_start`, though this plugin only uses it as a side effect and
 returns `{}`). Capability `host.ask` powers the interactive restore picker.
 
 ## Install
@@ -49,3 +57,7 @@ cargo test
 cargo build --release
 gray account check      # entry point + manifest handshake
 ```
+
+---
+Part of the [gray](https://github.com/vstaln/gray) plugin ecosystem —
+the open-source AI agent harness. <https://gray.alignment.id>

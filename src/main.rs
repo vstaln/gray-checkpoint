@@ -34,6 +34,7 @@ fn manifest() -> Value {
         "tools": [],
         "description": "git",
         "commands": ["/checkpoint"],
+        "command_descriptions": {"/checkpoint": "list or restore git stash checkpoints"},
         "hooks": ["agent/before_start"],
         "capabilities": ["host.ask"],
     })

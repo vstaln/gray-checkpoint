@@ -440,6 +440,7 @@ mod tests {
         assert!(run(&["init", "-q"]).status.success());
         assert!(run(&["config", "user.email", "t@t"]).status.success());
         assert!(run(&["config", "user.name", "t"]).status.success());
+        assert!(run(&["config", "core.autocrlf", "false"]).status.success());
         std::fs::write(d.join("a.txt"), "one\n").unwrap();
         assert!(run(&["add", "a.txt"]).status.success());
         assert!(run(&["commit", "-qm", "init"]).status.success());

@@ -32,6 +32,7 @@ fn manifest() -> Value {
         "version": env!("CARGO_PKG_VERSION"),
         "protocol": "2.0",
         "tools": [],
+        "description": "git",
         "commands": ["/checkpoint"],
         "hooks": ["agent/before_start"],
         "capabilities": ["host.ask"],
